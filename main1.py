@@ -22,8 +22,8 @@ from process_initialisation import *
 
 
 @app.get("/upload_file")
-async def check_status(image_file_name:str):
-    pres_status=present_status(image_file_name)
+async def check_status(unique_string:str):
+    pres_status=present_status(unique_string)
 
     return{"present status":pres_status}
 
@@ -31,7 +31,7 @@ async def start_process(token_id:str):
 
 #    await asyncio.sleep(10)
     image_file_name=update_database(token_id)
-    initialise(image_file_name)
+    initialise(image_file_name,token_id)
 
 
 @app.post("/upload_file/{token_id}")

@@ -29,7 +29,6 @@ async def check_status(unique_string:str):
 
 async def start_process(token_id:str):
 
-#    await asyncio.sleep(10)
     image_file_name=update_database(token_id)
     initialise(image_file_name,token_id)
 
@@ -43,27 +42,6 @@ async def upload_picture (background_tasks:BackgroundTasks,token_id:str):
 
 
 
-#@app.post("/login/")
-#async def login(username:Annotated[str,Form()],password:Annotated[str,Form()]):
- #   return {"username":username}
-
-#@app.post("/uploadfile/")
-#async def create_upload_file(file:UploadFile):
-#    contents=await file.read()
-#    return {contents}
-#
-
-
-#@app.post("/upload_file/{image_file_name}")
-#async def start_process(image_file_name:str):
-#    update_database(image_file_name)
- #   initialise(image_file_name)
-
-
-
-#@app.get("/upload")
-#async def get_results(image_file_name:str):
-#    no_of_faces=
 
 
 
@@ -82,7 +60,6 @@ async def send_image(image_file:UploadFile):
         f.write(contents)
 
 
-    # meta_integrate(contents)
     unique_string=add_file_path(os.path.join("Uploaded_Images",image_file.filename))
     
 

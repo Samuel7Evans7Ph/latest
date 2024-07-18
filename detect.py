@@ -14,7 +14,6 @@ def bounding_box(img, face_classifier):
     face = face_classifier.detectMultiScale(
         grey_img, scaleFactor=1.1, minNeighbors=4, minSize=(40, 40)
     )
-
     print(
         "The number of faces are",
         len(face),
@@ -39,7 +38,6 @@ def start_verification(image):
     face_classifier = cv2.CascadeClassifier(
         cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
     )
-
     no_of_faces = bounding_box(image, face_classifier)
     cv2.waitKey(0)
 

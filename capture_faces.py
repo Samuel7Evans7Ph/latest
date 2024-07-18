@@ -1,10 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 import os
-
-
 from deepface import DeepFace
-
 import numpy as np
 
 
@@ -18,7 +15,6 @@ def bounding_box(img):
     face = face_classifier.detectMultiScale(
         grey_img, scaleFactor=1.1, minNeighbors=4, minSize=(40, 40)
     )
-
     count = 0
     for x, y, w, h in face:
         image = img[y : y + h, x : x + w]
@@ -30,12 +26,8 @@ def bounding_box(img):
 
 
 cap = cv2.VideoCapture(0)
-
 count = 0
-
 name = input("enter the name of the person")
-
-
 count = 0
 while cap.isOpened():
     ret, frame = cap.read()

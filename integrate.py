@@ -12,11 +12,8 @@ from deepface import DeepFace
 
 def preprocess(file_path):
     byte_img = tf.io.read_file(file_path)
-
     img = tf.io.decode_jpeg(byte_img)
-
     img = tf.image.resize(img, (100, 100))
-
     img = img / 255
 
     return img
@@ -27,9 +24,7 @@ def verify(detection_threshold, verification_threshold, input_image, input_img_p
 
     person_name = ""
     input_embedding = DeepFace.represent(input_img_path, model_name="VGG-Face")
-
     input_embedding = input_embedding[0]["embedding"]
-
     for name in os.listdir("Database"):
         count = 0
         embedding_list = np.load(os.path.join("Database", name), allow_pickle=True)
@@ -54,14 +49,10 @@ def verify(detection_threshold, verification_threshold, input_image, input_img_p
 def integrate():
 
     for files in os.listdir("Image_Files"):
-
         input_img = preprocess(os.path.join("Image_Files", files))
-
         input_img_path = os.path.join("Image_Files", files)
         detection_threshold = 0.5
-
         verification_threshold = 0.5
-
         person_name = verify(
             detection_threshold, verification_threshold, input_img, input_img_path
         )

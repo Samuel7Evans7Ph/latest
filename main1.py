@@ -6,19 +6,13 @@ import asyncio
 import PIL
 
 from temp import *
-
 from PIL import Image
-
 from check_status import *
-
 from fastapi import FastAPI, Path, Query, Form, File, UploadFile, BackgroundTasks
 
 app = FastAPI()
 from database_update import *
 from process_initialisation import *
-
-
-# @app.get("/upload_file/{}")
 
 
 @app.get("/upload_file")
